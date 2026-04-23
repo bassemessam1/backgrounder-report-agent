@@ -1,3 +1,4 @@
+import argparse
 import os
 import re
 from datetime import date
@@ -170,13 +171,31 @@ telecom_crew = Crew(
     verbose=True
 )
 
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Generate and audit a telecom ISP backgrounder report."
+    )
+    parser.add_argument(
+        "--country",
+        required=True,
+        help="Target country for the report, for example: Italy",
+    )
+    parser.add_argument(
+        "--isps",
+        required=True,
+        help="Comma-separated ISP names, for example: Sky, EOLO, Tiscali",
+    )
+    return parser.parse_args()
+
 # --------------------------------------------------
 # EXECUTION
 # --------------------------------------------------
 if __name__ == "__main__":
+    args = parse_args()
     report_inputs = {
-        'country': 'Italy',
-        'isps': 'Sky, EOLO, Tiscali, Iliad, Digi, Dimensione'
+        'country': args.country.strip(),
+        'isps': args.isps.strip(),
     }
 
     print("Starting the multi-agent telecom research process...\n")

@@ -85,17 +85,21 @@ From the project root:
 
 ```bash
 source .venv/bin/activate
-python backgrounder-agent.py
+python backgrounder-agent.py --country "Italy" --isps "Sky, EOLO, Tiscali"
 ```
 
-## Current Default Inputs
+## Script Inputs
 
-Inside `backgrounder-agent.py`, defaults are:
+The script now requires these command-line inputs:
 
-- Country: `Italy`
-- ISPs: `Sky, EOLO, Tiscali, Iliad, Digi, Dimensione`
+- `--country`: target country name
+- `--isps`: comma-separated ISP list
 
-To change the target country or ISP list, edit the `report_inputs` dictionary in the `__main__` block.
+Example:
+
+```bash
+python backgrounder-agent.py --country "Italy" --isps "Iliad, EOLO, Tiscali"
+```
 
 ## Output
 
