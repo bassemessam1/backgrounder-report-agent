@@ -33,6 +33,7 @@ htmlcov/
 .hypothesis/
 .tox/
 .nox/
+reports/
 
 # Jupyter
 .ipynb_checkpoints/
